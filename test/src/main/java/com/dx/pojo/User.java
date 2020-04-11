@@ -14,10 +14,14 @@ public class User implements Serializable {
     private String name;
     private String idCard;
     private Double salary;
-
+    public String test;
     public User() {
     }
 
+    private User(String name, String idCard) {
+        this.name = name;
+        this.idCard = idCard;
+    }
 
     public User(String name, String idCard, Double salary) {
         this.name = name;
@@ -70,7 +74,7 @@ public class User implements Serializable {
                 "name='" + name + '\'' +
                 ", idCard='" + idCard + '\'' +
                 ", salary=" + salary +
+                ", test='" + test + '\'' +
                 '}';
     }
-
 }
