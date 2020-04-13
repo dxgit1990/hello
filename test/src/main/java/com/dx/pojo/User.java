@@ -8,7 +8,7 @@ import java.util.Objects;
  * @date 2020/3/20-16:57
  * @for create new
  */
-public class User implements Serializable {
+public class User implements Serializable,Cloneable {
 
     private static final long serialVersionUID = 3136953434751387180L;
     private String name;
@@ -76,5 +76,20 @@ public class User implements Serializable {
                 ", salary=" + salary +
                 ", test='" + test + '\'' +
                 '}';
+    }
+
+    /**
+     * 浅复制
+     * @return
+     * @throws CloneNotSupportedException
+     */
+    @Override
+    public User clone() {
+        try {
+            return (User)super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
