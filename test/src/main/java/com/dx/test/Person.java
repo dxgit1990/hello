@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * @author dx
  * @create 2020/4/9 11:17
- * @for new
+ * @for test inner class
  */
 public class Person {
     private int id;
