@@ -1,5 +1,6 @@
 package com.dx.test;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -19,14 +20,48 @@ public class HelloWorld {
 //        testNumber();
 //        testAdd();
 //        testHashSet();
-        testInt();
+//        testInt();
+        testLock();
 
     }
 
+    private static void testLock() {
+        Object object1 = new Object();
+        Object object2 = new Object();
+        new Thread(() -> {
+            synchronized (object1) {
+                try {
+                    Thread.currentThread().sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                synchronized (object2) {
+                    System.out.println("test1 process task ……");
+                }
+            }
+        }, "test1").start();
+        new Thread(() -> {
+            synchronized (object2) {
+                try {
+                    Thread.currentThread().sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                synchronized (object1) {
+                    System.out.println("test2 process task ……");
+                }
+            }
+        }, "test2").start();
+    }
+
     private static void testInt() {
-        Integer a=300;
-        Integer b=300;
-        System.out.println(a==b);
+        Integer a = 300;
+        Integer b = 300;
+        System.out.println(a == b);
+        try {
+            System.in.read();
+        } catch (IOException e) {
+        }
     }
 
     private static void testHashSet() {
