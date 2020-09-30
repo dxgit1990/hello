@@ -14,11 +14,19 @@ import java.util.Map;
  */
 public class Test2 {
     public static void main(String[] args) {
-        testClazz();
+//        testClazz();
 //        testMap();
-        test();
-    }
+//        test();
+        test2();
 
+
+
+    }
+    private static void test2(){
+        Map<String,String> map = new HashMap<>(18);
+        System.out.println("map = " + map);
+        System.out.println("map.size() = " + map.size());
+    }
 
     private static void test() {
         List<User> list = new ArrayList<>();
@@ -29,7 +37,7 @@ public class Test2 {
         }
     }
 
-    private static void testMap() {
+    private synchronized static void testMap() {
         Map<String, String> map = new HashMap<>();
         map.put("abc", "tom");
         String put = map.put("abc", "lucy");
