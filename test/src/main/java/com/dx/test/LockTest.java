@@ -1,5 +1,7 @@
 package com.dx.test;
 
+import org.junit.Test;
+
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
@@ -11,22 +13,21 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class LockTest {
 
-    public static void main(String[] args) {
-//        testReentrantlock();
-        testLatch();
-    }
 
-    private static void testLatch() {
-        CountDownLatch latch = new CountDownLatch(5);
+    @Test
+    public void testLatch() {
+        CountDownLatch latch = new CountDownLatch(1);
         try {
-            latch.await();
             latch.countDown();
+            latch.await();
+            System.out.println("hi");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    private static void testReentrantlock() {
+    @Test
+    public void testReentrantlock() {
         ReentrantLock lock = new ReentrantLock();
         Condition condition = lock.newCondition();
         try {
