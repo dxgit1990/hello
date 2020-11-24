@@ -18,7 +18,7 @@ public class User implements Serializable,Cloneable {
     public User() {
     }
 
-    private User(String name, String idCard) {
+    public User(String name, String idCard) {
         this.name = name;
         this.idCard = idCard;
     }
